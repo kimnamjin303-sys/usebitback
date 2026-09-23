@@ -1,0 +1,270 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>비트백 | 아고다 최대 4%·야놀자 최대 2% 비트코인 리워드</title>
+  <meta name="description" content="비트백 iOS 베타 앱을 경유해 아고다 숙소 예약 시 최대 4%, 야놀자 국내 숙박 예약 시 최대 2%의 비트코인 리워드를 받을 수 있습니다. 적립 대상 및 제외 조건 확인." />
+  <meta property="og:title" content="비트백 | 숙소 예약 비트코인 리워드" />
+  <meta property="og:description" content="Agoda up to 4% and NOL up to 2% in Bitcoin rewards on eligible stays via the Bitback iOS beta app. Terms apply." />
+  <meta name="theme-color" content="#0a0a0a" />
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <style>
+    :root{
+      --bg:#0a0a0a; --panel:#121212; --panel2:#171717; --ink:#f5f5f5;
+      --muted:#9e9e9e; --line:#262626; --orange:#ff6b00; --orange2:#ff8a2b;
+      --white:#fff; --shadow:0 24px 80px rgba(0,0,0,.35);
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans KR",Arial,sans-serif;line-height:1.55}
+    a{color:inherit;text-decoration:none}
+    .wrap{width:min(1180px,calc(100% - 40px));margin:0 auto}
+    .nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(18px);background:rgba(10,10,10,.72);border-bottom:1px solid rgba(255,255,255,.06)}
+    .navin{height:76px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+    .brand{display:flex;align-items:center;gap:12px;font-weight:800;font-size:22px}
+    .brand .coin{width:38px;height:38px;border-radius:12px;display:grid;place-items:center;background:#1a120d;color:var(--orange);font-size:28px}
+    .navlinks{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+    .navlink{padding:9px 12px;border-radius:10px;color:#c9c9c9;font-size:14px}
+    .navlink:hover{background:#161616;color:#fff}
+    .lang{border:1px solid #2a2a2a;background:#111;color:#ddd;padding:9px 12px;border-radius:999px;cursor:pointer;font-weight:700}
+    .hero{padding:86px 0 70px;position:relative;overflow:hidden}
+    .hero:before{content:"";position:absolute;inset:-120px -220px auto auto;width:620px;height:620px;border-radius:50%;background:radial-gradient(circle,rgba(255,107,0,.22),rgba(255,107,0,0) 68%);pointer-events:none}
+    .hero-grid{display:grid;grid-template-columns:1.08fr .92fr;gap:54px;align-items:center}
+    .eyebrow{display:inline-flex;align-items:center;gap:8px;padding:8px 11px;border:1px solid #2b211a;background:#17110d;border-radius:999px;color:#ff9a55;font-size:13px;font-weight:800;letter-spacing:.04em}
+    h1{font-size:clamp(44px,6vw,78px);line-height:1.03;letter-spacing:-.045em;margin:18px 0 22px}
+    h1 strong{color:var(--orange)}
+    .lead{font-size:clamp(18px,2vw,23px);color:#bdbdbd;max-width:720px;margin:0 0 30px}
+    .actions{display:flex;gap:12px;flex-wrap:wrap}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:14px 18px;border-radius:14px;font-weight:800;border:1px solid transparent;transition:.18s ease}
+    .btn.primary{background:var(--orange);color:#0a0a0a}
+    .btn.primary:hover{transform:translateY(-1px);background:var(--orange2)}
+    .btn.secondary{background:#121212;border-color:#292929;color:#f3f3f3}
+    .btn.secondary:hover{border-color:#444}
+    .status{margin-top:22px;color:#8f8f8f;font-size:14px;display:flex;gap:16px;align-items:center;flex-wrap:wrap}
+    .dot{width:8px;height:8px;border-radius:50%;background:var(--orange);box-shadow:0 0 20px var(--orange)}
+    .phone-stage{position:relative;min-height:560px}
+    .phone{position:absolute;width:250px;border-radius:34px;overflow:hidden;border:1px solid #2c2c2c;background:#111;box-shadow:var(--shadow)}
+    .phone img{width:100%;display:block}
+    .phone.one{left:0;top:75px;transform:rotate(-5deg);opacity:.93}
+    .phone.two{left:140px;top:5px;z-index:3}
+    .phone.three{right:0;top:85px;transform:rotate(5deg);opacity:.93}
+    .section{padding:74px 0}
+    .section.light{background:#f5f5f5;color:#111}
+    .section-title{font-size:clamp(30px,4vw,46px);line-height:1.1;letter-spacing:-.035em;margin:0 0 12px}
+    .section-sub{color:#8c8c8c;max-width:760px;margin:0 0 34px;font-size:18px}
+    .flow{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+    .flow-card{background:#131313;border:1px solid #242424;border-radius:22px;padding:22px;min-height:150px}
+    .flow-num{color:var(--orange);font-size:13px;font-weight:900;letter-spacing:.08em}
+    .flow-card h3{margin:12px 0 5px;font-size:19px}
+    .flow-card p{margin:0;color:#999;font-size:14px}
+    .reward-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin:28px 0}
+    .reward-card{background:#131313;border:1px solid #303030;border-radius:22px;padding:26px}
+    .reward-card h3{margin:0 0 8px;font-size:26px}
+    .reward-rate{color:var(--orange);font-size:clamp(30px,4vw,46px);font-weight:900}
+    .reward-card p,.reward-note{color:#b5b5b5}
+    .reward-card ul{padding-left:20px;color:#b5b5b5}
+    .reward-card li{margin:8px 0}
+    .reward-note{font-size:14px}
+    .deck-area{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    .deck-card{border-radius:26px;padding:30px;border:1px solid #dfdfdf;background:#fff;box-shadow:0 14px 40px rgba(0,0,0,.07)}
+    .deck-card.dark{background:#111;color:#fff;border-color:#1e1e1e}
+    .deck-card .tag{color:var(--orange);font-weight:900;font-size:13px;letter-spacing:.08em}
+    .deck-card h3{font-size:28px;line-height:1.15;margin:12px 0 12px}
+    .deck-card p{color:#737373;margin:0 0 20px}
+    .deck-card.dark p{color:#a8a8a8}
+    .partner-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:26px;align-items:stretch}
+    .value{background:#111;border:1px solid #252525;border-radius:26px;padding:30px}
+    .value h3{font-size:28px;margin:0 0 18px}
+    .value ul{list-style:none;margin:0;padding:0;display:grid;gap:14px}
+    .value li{display:flex;gap:12px;color:#b9b9b9}
+    .check{color:var(--orange);font-weight:900}
+    .contact{background:linear-gradient(160deg,#171717,#0f0f0f);border:1px solid #262626;border-radius:26px;padding:30px}
+    .contact a{color:#fff}
+    .contact .mail{font-size:20px;font-weight:850;word-break:break-word}
+    .qrbox{margin-top:22px;display:flex;gap:16px;align-items:center}
+    .qrbox img{width:96px;height:96px;border-radius:12px;background:#fff;padding:6px}
+    footer{border-top:1px solid #1f1f1f;padding:26px 0 38px;color:#777;font-size:13px}
+    @media(max-width:960px){
+      .hero-grid,.partner-grid{grid-template-columns:1fr}
+      .phone-stage{min-height:510px;max-width:620px;margin:0 auto}
+      .phone{width:220px}
+      .phone.two{left:50%;transform:translateX(-50%);top:0}
+      .phone.one{left:4%;top:70px}
+      .phone.three{right:4%;top:70px}
+      .flow{grid-template-columns:repeat(2,1fr)}
+      .deck-area,.reward-grid{grid-template-columns:1fr}
+    }
+    @media(max-width:640px){
+      .wrap{width:min(100% - 24px,1180px)}
+      .navin{height:68px}
+      .navlinks .navlink{display:none}
+      .hero{padding-top:56px}
+      .lead{font-size:18px}
+      .actions .btn{width:100%}
+      .phone-stage{min-height:440px}
+      .phone{width:175px;border-radius:24px}
+      .phone.one{left:-1%;top:82px}
+      .phone.two{top:10px}
+      .phone.three{right:-1%;top:82px}
+      .flow{grid-template-columns:1fr}
+      .section{padding:56px 0}
+      .qrbox{align-items:flex-start}
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="wrap navin">
+      <a class="brand" href="#top"><span class="coin">₿</span><span>Bitback</span></a>
+      <div class="navlinks">
+        <a class="navlink" href="#stay-rewards" data-ko="숙소 리워드" data-en="Stay rewards">숙소 리워드</a>
+         <a class="navlink" href="#how" data-ko="서비스" data-en="How it works">서비스</a>
+        <a class="navlink" href="#deck" data-ko="파트너십 덱" data-en="Partnership deck">파트너십 덱</a>
+        <a class="navlink" href="#contact" data-ko="문의" data-en="Contact">문의</a>
+        <button class="lang" id="langBtn">EN</button>
+      </div>
+    </div>
+  </nav>
+
+  <main id="top">
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div>
+          <div class="eyebrow" data-ko="숙소 예약 리워드 · iOS 베타 이용 가능" data-en="STAY REWARDS · iOS BETA AVAILABLE">숙소 예약 리워드 · iOS 베타 이용 가능</div>
+          <h1 data-ko="숙소 예약하고,<br><strong>비트코인 리워드 받기.</strong>" data-en="Book your stay.<br><strong>Earn Bitcoin rewards.</strong>">숙소 예약하고,<br><strong>비트코인 리워드 받기.</strong></h1>
+          <p class="lead" data-ko="비트백 iOS 앱을 경유해 아고다 숙소 예약 시 최대 4%, 야놀자 국내 숙박 예약 시 최대 2%의 비트코인 리워드를 받으세요. 적립 대상과 제외 조건을 먼저 확인하세요." data-en="Use the Bitback iOS app for up to 4% Bitcoin rewards on eligible Agoda stays and up to 2% on eligible domestic NOL stays. Check eligibility and exclusions first.">비트백 iOS 앱을 경유해 아고다 숙소 예약 시 최대 4%, 야놀자 국내 숙박 예약 시 최대 2%의 비트코인 리워드를 받으세요. 적립 대상과 제외 조건을 먼저 확인하세요.</p>
+          <div class="actions">
+            <a class="btn primary" href="assets/deck-ko.pdf" target="_blank" data-ko="🇰🇷 한글 파트너십 덱" data-en="🇰🇷 Korean Deck">🇰🇷 한글 파트너십 덱</a>
+            <a class="btn secondary" href="assets/deck-en.pdf" target="_blank" data-ko="🇺🇸 English Deck" data-en="🇺🇸 English Deck">🇺🇸 English Deck</a>
+          </div>
+          <div class="status"><span class="dot"></span><span data-ko="현재 iOS TestFlight 베타에서 이용 가능 · Android 및 웹 예약 적립 미지원" data-en="Available via iOS TestFlight beta · Android and web booking rewards unavailable">현재 iOS TestFlight 베타에서 이용 가능 · Android 및 웹 예약 적립 미지원</span></div>
+        </div>
+        <div class="phone-stage" aria-label="Bitback app screens">
+          <div class="phone one"><img src="assets/screen-shop.jpg" alt="Bitback Shopping screen"></div>
+          <div class="phone two"><img src="assets/screen-home.jpg" alt="Bitback Home screen"></div>
+          <div class="phone three"><img src="assets/screen-withdraw.jpg" alt="Bitback Withdrawal screen"></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="stay-rewards" class="section" aria-labelledby="stay-title">
+      <div class="wrap">
+        <h2 id="stay-title" class="section-title" data-ko="아고다·야놀자 예약 리워드" data-en="Agoda &amp; NOL stay rewards">아고다·야놀자 예약 리워드</h2>
+        <p class="section-sub" data-ko="비트백 iOS 베타 앱에서 해당 제휴처로 이동해 적립 대상 숙소를 예약하세요. 표시된 비율은 최대 적립률이며 모든 예약에 적용되는 것은 아닙니다." data-en="Open the partner from the Bitback iOS beta app and book an eligible stay. Rates are maximums and do not apply to every booking.">비트백 iOS 베타 앱에서 해당 제휴처로 이동해 적립 대상 숙소를 예약하세요. 표시된 비율은 최대 적립률이며 모든 예약에 적용되는 것은 아닙니다.</p>
+        <div class="reward-grid">
+          <article class="reward-card">
+            <h3 data-ko="아고다 (Agoda)" data-en="Agoda">아고다 (Agoda)</h3>
+            <div class="reward-rate" data-ko="최대 4% BTC" data-en="Up to 4% BTC">최대 4% BTC</div>
+            <p data-ko="비트백 앱 → 아고다 → 적립 대상 숙소 예약. 예약 완료 후 적립 예정 내역 반영까지 평균 약 11시간이 걸릴 수 있으며 해외 제휴처 특성상 더 지연될 수 있습니다. 실제 숙박 이용 및 제휴사 최종 승인 후 적립이 확정됩니다." data-en="Bitback app → Agoda → eligible stay booking. Pending rewards may appear around 11 hours after booking or later for an overseas partner. Rewards become final after the stay and partner approval.">비트백 앱 → 아고다 → 적립 대상 숙소 예약. 예약 완료 후 적립 예정 내역 반영까지 평균 약 11시간이 걸릴 수 있으며 해외 제휴처 특성상 더 지연될 수 있습니다. 실제 숙박 이용 및 제휴사 최종 승인 후 적립이 확정됩니다.</p>
+            <details><summary data-ko="아고다 적립 제외 및 유의사항" data-en="Agoda exclusions and conditions">아고다 적립 제외 및 유의사항</summary>
+              <ul>
+                <li data-ko="비트백에서 안내하지 않은 할인코드·할인 프로모션을 사용한 예약, 아고다 ‘할인쿠폰&amp;특가상품’ 쿠폰 사용 예약은 제외됩니다." data-en="Bookings using discount codes or promotions not provided by Bitback, or Agoda discount/special-deal coupons, are excluded.">비트백에서 안내하지 않은 할인코드·할인 프로모션을 사용한 예약, 아고다 ‘할인쿠폰&amp;특가상품’ 쿠폰 사용 예약은 제외됩니다.</li>
+                <li data-ko="항공·패키지(항공+숙소)·액티비티·렌터카 등 숙소 외 상품 및 아고다 프로모션 페이지를 통한 예약은 적립 대상이 아닐 수 있습니다." data-en="Flights, packages, activities, car rentals and bookings through Agoda promotional pages may be ineligible.">항공·패키지(항공+숙소)·액티비티·렌터카 등 숙소 외 상품 및 아고다 프로모션 페이지를 통한 예약은 적립 대상이 아닐 수 있습니다.</li>
+                <li data-ko="추적 미허용, 쿠키 미동의, 광고 차단 프로그램 사용 시 적립되지 않을 수 있습니다. 취소·환불된 예약은 제외됩니다." data-en="Tracking restrictions, cookie refusal or ad blockers may prevent attribution. Cancelled or refunded bookings are excluded.">추적 미허용, 쿠키 미동의, 광고 차단 프로그램 사용 시 적립되지 않을 수 있습니다. 취소·환불된 예약은 제외됩니다.</li>
+                <li data-ko="제휴사 정산 시 수수료·세금 차감 등으로 최초 확인 금액과 최종 인정 금액이 달라질 수 있습니다." data-en="Partner settlement adjustments, fees and taxes can change the final eligible amount.">제휴사 정산 시 수수료·세금 차감 등으로 최초 확인 금액과 최종 인정 금액이 달라질 수 있습니다.</li>
+              </ul>
+            </details>
+          </article>
+          <article class="reward-card">
+            <h3 data-ko="야놀자 (NOL)" data-en="NOL (Yanolja)">야놀자 (NOL)</h3>
+            <div class="reward-rate" data-ko="최대 2% BTC" data-en="Up to 2% BTC">최대 2% BTC</div>
+            <p data-ko="비트백 앱에서 NOL 앱으로 이동해 국내 숙박을 예약해야 합니다. PC·모바일웹에서 발생한 구매는 적립 대상이 아닙니다. 실적은 실시간 전송 후 순차 반영되며 실제 이용 및 제휴사 최종 승인 후 적립이 확정됩니다." data-en="Open the NOL app through Bitback and book eligible domestic accommodation. Desktop and mobile web purchases are ineligible. Pending rewards appear after partner transmission; final approval follows the completed stay.">비트백 앱에서 NOL 앱으로 이동해 국내 숙박을 예약해야 합니다. PC·모바일웹에서 발생한 구매는 적립 대상이 아닙니다. 실적은 실시간 전송 후 순차 반영되며 실제 이용 및 제휴사 최종 승인 후 적립이 확정됩니다.</p>
+            <details><summary data-ko="야놀자 적립 제외 및 유의사항" data-en="NOL exclusions and conditions">야놀자 적립 제외 및 유의사항</summary>
+              <ul>
+                <li data-ko="NOL 앱(iOS/Android)에서 발생한 구매만 적립 대상입니다. 비트백의 현재 예약 경로는 iOS 베타 앱에서 제공됩니다." data-en="Only purchases made in the NOL mobile app qualify. Bitback currently offers this booking route through its iOS beta app.">NOL 앱(iOS/Android)에서 발생한 구매만 적립 대상입니다. 비트백의 현재 예약 경로는 iOS 베타 앱에서 제공됩니다.</li>
+                <li data-ko="국내 숙박(대실 포함) 외 해외 숙박·레저·해외 투어·티켓·항공·교통 상품은 제외됩니다." data-en="Overseas stays, leisure, tours, tickets, flights and transportation are excluded; eligible domestic accommodation includes short stays.">국내 숙박(대실 포함) 외 해외 숙박·레저·해외 투어·티켓·항공·교통 상품은 제외됩니다.</li>
+                <li data-ko="최초 제휴 링크 클릭 후 24시간 내 실적이 인정됩니다. 다른 제휴 링크를 클릭하면 기존 실적이 인정되지 않을 수 있습니다. NOL 앱을 새로 설치했다면 비트백에서 다시 이동하세요." data-en="Attribution applies within 24 hours of the initial affiliate-link click. Clicking another affiliate link may invalidate it. After a new NOL app install, return to NOL through Bitback.">최초 제휴 링크 클릭 후 24시간 내 실적이 인정됩니다. 다른 제휴 링크를 클릭하면 기존 실적이 인정되지 않을 수 있습니다. NOL 앱을 새로 설치했다면 비트백에서 다시 이동하세요.</li>
+                <li data-ko="할인쿠폰 사용 시 쿠폰 할인금액을 제외한 제휴사 인정 금액을 기준으로 산정될 수 있습니다. 추적 미허용·쿠키 미동의·광고 차단 시 적립이 누락될 수 있으며 취소·환불 주문은 제외됩니다." data-en="Coupon discounts may be deducted from the eligible amount. Tracking restrictions or ad blockers can prevent rewards. Cancelled or refunded orders are excluded.">할인쿠폰 사용 시 쿠폰 할인금액을 제외한 제휴사 인정 금액을 기준으로 산정될 수 있습니다. 추적 미허용·쿠키 미동의·광고 차단 시 적립이 누락될 수 있으며 취소·환불 주문은 제외됩니다.</li>
+              </ul>
+            </details>
+          </article>
+        </div>
+        <p class="reward-note" data-ko="두 제휴처 모두 확정 적립금 5,000원 이상부터 출금 요청할 수 있습니다. 실제 비트코인 수량(sats)은 출금 요청 시점의 BTC/KRW 시세로 결정됩니다. 예약 직후 즉시 BTC가 지급되는 방식이 아닙니다." data-en="For both partners, withdrawal is available once confirmed rewards reach KRW 5,000. The BTC amount (sats) is determined at the BTC/KRW rate when withdrawal is requested. Bitcoin is not paid immediately after booking.">두 제휴처 모두 확정 적립금 5,000원 이상부터 출금 요청할 수 있습니다. 실제 비트코인 수량(sats)은 출금 요청 시점의 BTC/KRW 시세로 결정됩니다. 예약 직후 즉시 BTC가 지급되는 방식이 아닙니다.</p>
+        <div class="actions"><a class="btn primary" href="https://testflight.apple.com/join/PqwcFWee" target="_blank" rel="noopener noreferrer" data-ko="비트백 iOS 베타 앱에서 예약하기 ↗" data-en="Book through Bitback iOS beta ↗">비트백 iOS 베타 앱에서 예약하기 ↗</a></div>
+        <p class="reward-note" data-ko="TestFlight 앱 설치가 필요합니다. 이 웹페이지에서 직접 예약하거나 웹을 통해 적립받는 기능은 현재 제공하지 않습니다." data-en="Requires the TestFlight app. Direct booking or reward attribution through this website is not currently available.">TestFlight 앱 설치가 필요합니다. 이 웹페이지에서 직접 예약하거나 웹을 통해 적립받는 기능은 현재 제공하지 않습니다.</p>
+      </div>
+    </section>
+
+    <section id="how" class="section">
+      <div class="wrap">
+        <h2 class="section-title" data-ko="소비가 끝나는 순간,<br>비트코인은 쌓이기 시작합니다." data-en="When the purchase ends,<br>Bitcoin starts to accumulate.">소비가 끝나는 순간,<br>비트코인은 쌓이기 시작합니다.</h2>
+        <p class="section-sub" data-ko="사용자는 평소처럼 구매하고, 비트백은 제휴 실적을 추적해 리워드로 연결합니다." data-en="Users shop as usual. Bitback tracks affiliate performance and turns it into rewards.">사용자는 평소처럼 구매하고, 비트백은 제휴 실적을 추적해 리워드로 연결합니다.</p>
+        <div class="flow">
+          <div class="flow-card"><div class="flow-num">01</div><h3 data-ko="비트백에서 이동" data-en="Start in Bitback">비트백에서 이동</h3><p data-ko="제휴 쇼핑몰을 선택합니다." data-en="Choose a partner store.">제휴 쇼핑몰을 선택합니다.</p></div>
+          <div class="flow-card"><div class="flow-num">02</div><h3 data-ko="평소처럼 구매" data-en="Shop as usual">평소처럼 구매</h3><p data-ko="상품과 서비스를 구매합니다." data-en="Purchase products or services.">상품과 서비스를 구매합니다.</p></div>
+          <div class="flow-card"><div class="flow-num">03</div><h3 data-ko="실적 확인" data-en="Track performance">실적 확인</h3><p data-ko="제휴 실적과 사용자 UID를 추적합니다." data-en="Track affiliate conversion and user UID.">제휴 실적과 사용자 UID를 추적합니다.</p></div>
+          <div class="flow-card"><div class="flow-num">04</div><h3 data-ko="리워드 적립" data-en="Earn rewards">리워드 적립</h3><p data-ko="확정된 구매에 리워드를 적립합니다." data-en="Confirmed purchases earn rewards.">확정된 구매에 리워드를 적립합니다.</p></div>
+          <div class="flow-card"><div class="flow-num">05</div><h3 data-ko="비트코인으로 받기" data-en="Receive Bitcoin">비트코인으로 받기</h3><p data-ko="출금 시점의 시세로 BTC를 지급합니다." data-en="Rewards are converted to BTC at withdrawal.">출금 시점의 시세로 BTC를 지급합니다.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="deck" class="section light">
+      <div class="wrap">
+        <h2 class="section-title" data-ko="비트백 파트너십 소개서" data-en="Bitback Partnership Deck">비트백 파트너십 소개서</h2>
+        <p class="section-sub" data-ko="제휴 구조, 서비스 현황, 앱 화면을 2페이지로 정리했습니다." data-en="A concise two-page overview of the product, partnership model, and current progress.">제휴 구조, 서비스 현황, 앱 화면을 2페이지로 정리했습니다.</p>
+        <div class="deck-area">
+          <article class="deck-card">
+            <div class="tag">KOREAN</div>
+            <h3>비트백 파트너십 덱</h3>
+            <p>국내 제휴사 및 파트너 협의를 위한 한글 소개서입니다.</p>
+            <a class="btn primary" href="assets/deck-ko.pdf" target="_blank">PDF 열기 ↗</a>
+          </article>
+          <article class="deck-card dark">
+            <div class="tag">ENGLISH</div>
+            <h3>Bitback Partnership Deck</h3>
+            <p>English overview for global partners, events and investor introductions.</p>
+            <a class="btn primary" href="assets/deck-en.pdf" target="_blank">Open PDF ↗</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap partner-grid">
+        <div class="value">
+          <h3 data-ko="파트너와 함께 만드는 선순환" data-en="A performance-driven partnership loop">파트너와 함께 만드는 선순환</h3>
+          <ul>
+            <li><span class="check">✓</span><span data-ko="제휴사: 신규 구매 및 재구매 유입" data-en="Partners: new customer acquisition and repeat purchases">제휴사: 신규 구매 및 재구매 유입</span></li>
+            <li><span class="check">✓</span><span data-ko="비트백: 구매 연결 · 실적 추적 · 리워드 운영" data-en="Bitback: purchase routing, performance tracking and rewards">비트백: 구매 연결 · 실적 추적 · 리워드 운영</span></li>
+            <li><span class="check">✓</span><span data-ko="사용자: 소비의 일부를 비트코인으로 축적" data-en="Users: turn part of everyday spending into Bitcoin">사용자: 소비의 일부를 비트코인으로 축적</span></li>
+          </ul>
+        </div>
+        <div id="contact" class="contact">
+          <div class="eyebrow">PARTNERSHIP CONTACT</div>
+          <h3 style="font-size:32px;margin:16px 0 10px">Bitback</h3>
+          <p style="color:#aaa;margin:0 0 14px" data-ko="제휴 및 사업 협업 문의" data-en="Partnership & business inquiries">제휴 및 사업 협업 문의</p>
+          <a class="mail" href="mailto:kimskawls@naver.com">kimskawls@naver.com</a>
+          <div class="qrbox">
+            <img src="assets/qr-usebitback.png" alt="usebitback.com QR code">
+            <div><strong>usebitback.com</strong><br><span style="color:#888" data-ko="미팅에서 바로 열어보세요." data-en="Open instantly during a meeting.">미팅에서 바로 열어보세요.</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+  <div class="wrap">
+    © 2026 Bitback. Shop more. Earn Bitcoin.
+    <div style="font-size:11px; color:#555; margin-top:6px;">
+      Impact-Site-Verification: 1a0c0b05-8329-437a-951e-2c2fe43d8a44
+    </div>
+  </div>
+</footer>
+
+<script>
+  let lang='ko';
+  const btn=document.getElementById('langBtn');
+  btn.addEventListener('click',()=>{
+    lang = lang==='ko' ? 'en' : 'ko';
+    document.documentElement.lang=lang;
+    btn.textContent= lang==='ko' ? 'EN' : 'KR';
+    document.querySelectorAll('[data-ko][data-en]').forEach(el=>{
+      el.innerHTML = el.dataset[lang];
+    });
+  });
+</script>
+</body>
+</html>
